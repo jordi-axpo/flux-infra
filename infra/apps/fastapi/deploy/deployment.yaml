@@ -25,3 +25,5 @@ spec:
         image: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi:0.0.1
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+      - name: acr-credentials
