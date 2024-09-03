@@ -1,10 +1,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
-  name: backend
+  name: fastapi
   namespace: default
 spec:
   interval: 1m0s
   ref:
     branch: main
-  url: https://github.com/jordi-axpo/flux-infra.git
+  url: https://github.com/jordi-axpo/flux-infra

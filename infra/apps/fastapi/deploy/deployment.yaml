@@ -22,6 +22,6 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: hello-version-fastapi:0.0.1
+        image: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi:0.0.1
         ports:
         - containerPort: 8080
