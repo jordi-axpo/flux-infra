@@ -1,0 +1,12 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: flask
+  namespace: default
+spec:
+  interval: 15m
+  path: "./app/flask/deploy"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flask
