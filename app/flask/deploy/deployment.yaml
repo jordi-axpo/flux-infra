@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app
+  name: flask
   labels:
-    app: app
+    app: flask
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: app
+      app: flask
   replicas: 2
   strategy:
     type: RollingUpdate
@@ -18,10 +18,10 @@ spec:
   template:
     metadata:
       labels:
-        app: app
+        app: flask
     spec:
       containers:
-      - name: app
-        image: hello-version:0.0.1
+      - name: flask
+        image: hello-version-flask:0.0.1
         ports:
         - containerPort: 8080
