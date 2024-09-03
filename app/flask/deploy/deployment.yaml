@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: hello-version-flask:0.0.1
+        image: hello-version-flask:0.0.2
         imagePullPolicy: Never
         ports:
         - containerPort: 8080
