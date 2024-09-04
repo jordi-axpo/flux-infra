@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-VERSION = "0.0.7"
+VERSION = "0.0.8"
 
 @app.get("/")
 async def root():
