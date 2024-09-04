@@ -4,7 +4,7 @@ metadata:
   name: fastapi
   namespace: default
 spec:
-  interval: 15m
+  interval: 10s
   path: "./infra/apps/fastapi/deploy"
   prune: true
   sourceRef:

@@ -6,7 +6,7 @@ metadata:
   labels:
     app: fastapi
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: fastapi
   ports:
@@ -14,3 +14,4 @@ spec:
       name: http
       port: 80
       targetPort: 8080
+      nodePort: 30080
