@@ -7,6 +7,4 @@ spec:
   image: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi
   exclusionList:
     - 'latest'
-  interval: 1m0s
-  secretRef:
-    name: acr-credentials
+  interval: 10s
