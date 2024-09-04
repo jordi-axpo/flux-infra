@@ -32,7 +32,7 @@ jobs:
           context: "{{defaultContext}}:app/fastapi"
           push: true
           tags: |
-            ${{ vars.ACR_NAME }}.azurecr.io/${{ vars.ACR_REPO }}:0.0.${{ github.run_id }}
+            ${{ vars.ACR_NAME }}.azurecr.io/${{ vars.ACR_REPO }}:${{ github.run_number }}
             ${{ vars.ACR_NAME }}.azurecr.io/${{ vars.ACR_REPO }}:latest
       - name: Log out
         run: |
