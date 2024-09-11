@@ -2,10 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base/fastapi
-patches:
-  - path: controller.yaml
-    target:
-      kind: Kustomization
-  - path: imageupdateautomation.yaml
-    target:
-      kind: ImageUpdateAutomation
+
