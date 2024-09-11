@@ -1,0 +1,11 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: fastapi
+  namespace: default
+spec:
+  imageRepositoryRef:
+    name: fastapi
+  policy:
+    numerical:
+      order: asc

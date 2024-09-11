@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi
+  labels:
+    app: fastapi
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: fastapi
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: fastapi
+    spec:
+      containers:
+      - name: fastapi
+        image: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi:10 # {"$imagepolicy": "default:fastapi"}
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: acr-credentials
