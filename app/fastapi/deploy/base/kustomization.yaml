@@ -5,4 +5,4 @@ resources:
   - deployment.yaml
   - service.yaml
 commonLabels:
-  app: fastapi-example
+  app: fastapi
