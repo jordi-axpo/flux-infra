@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# The token with admin permissions in the ${GITHUB_REPO} repository (so it can create deploy keys)
+# as defined in https://fluxcd.io/flux/installation/#github-and-github-enterprise
+export GITHUB_TOKEN=secret
+
+# The github organization of the GitOps repo
+export GITHUB_OWNER=myorg
+
+# The GitOps repo
+export GITHUB_REPO=myrepo
+
+# The list of age secret keys that allow to decrypt sops secrets locally
+export SOPS_AGE_KEY_FILE=./clusters/dev/sops.agekey
+
+# It is also possible to provide multiple files in a single one. SOPS will try all the keys until one works.
+# SOPS_AGE_KEY_FILE=$(cat ./clusters/dev/sops.agekey; echo; cat ./clusters/staging/sops.agekey; echo; cat ./clusters/prod/sops.agekey)
+# export SOPS_AGE_KEY_FILE

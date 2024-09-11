@@ -1,0 +1,19 @@
+# This config applies recursively to all sub-directories.
+
+# Multiple directories can use separate SOPS configs.
+
+# Contributors using the sops CLI to create and encrypt files won’t have to worry
+# about specifying the proper key for the target cluster or namespace.
+# Therefore, they can just encrypt files with `sops -e file.yaml`
+
+# Private key should be in ./cluster/{name}/sops.agekey
+
+# creation rules are evaluated sequentially, the first match wins
+creation_rules:
+  # Dev secrets
+  - path_regex: .*dev/.*values-secret.yaml
+    age: age1ln0hyfv26nu7c9ljq99aulgqxu3y2l3jggv9ggt9pekqvz8tu34q9a4zwt
+  - path_regex: .*dev/.*.yaml
+    encrypted_regex: ^(data|stringData)$
+    age: age1ln0hyfv26nu7c9ljq99aulgqxu3y2l3jggv9ggt9pekqvz8tu34q9a4zwt
+
