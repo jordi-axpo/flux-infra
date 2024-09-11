@@ -1,12 +1,8 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: fastapi
-  namespace: default
-spec:
-  interval: 1m0s
-  path: "./infra/apps/base/fastapi/deploy"
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: fastapi
+resources:
+  - gitrepository.yaml
+  - imagerepository.yaml
+  - controller.yaml
+  - imagepolicy.yaml
+  - imageupdateautomation.yaml

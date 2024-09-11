@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: fastapi-example
+resources:
+  - ../base
+configMapGenerator:
+  - name: env-example # it will replace the configmap that it founds with this name and add a hash
+    behavior: merge
+    literals:
+      - ENV=dev
+commonLabels:
+  environment: dev

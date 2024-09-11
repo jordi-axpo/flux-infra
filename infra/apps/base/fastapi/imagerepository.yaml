@@ -8,3 +8,5 @@ spec:
   exclusionList:
     - 'latest'
   interval: 10s
+  secretRef:
+    name: acr-credentials

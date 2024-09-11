@@ -7,7 +7,7 @@ spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: fastapi
+    name: flux-infra
   git:
     checkout:
       ref:
@@ -20,5 +20,5 @@ spec:
     push:
       branch: main
   update:
-    path: ./infra/apps/base/fastapi/deploy/deployment.yaml
+    path: ./app/deploy/base
     strategy: Setters
