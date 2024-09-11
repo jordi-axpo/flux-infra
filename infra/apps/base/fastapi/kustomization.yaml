@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   interval: 10s
-  path: "./infra/apps/fastapi/deploy"
+  path: "./infra/apps/base/fastapi/deploy"
   prune: true
   sourceRef:
     kind: GitRepository
