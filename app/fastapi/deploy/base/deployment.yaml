@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi:15 # {"$imagepolicy": "default:fastapi"}
+        image: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi:16 # {"$imagepolicy": "default:fastapi"}
         ports:
         - containerPort: 8080
         envFrom:
