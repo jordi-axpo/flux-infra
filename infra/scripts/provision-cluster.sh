@@ -47,7 +47,7 @@ fi
 
 cluster_name="$1"
 context_name="$2"
-private_key_path="./clusters/${cluster_name}/sops.agekey"
+private_key_path="./infra/clusters/${cluster_name}/sops.agekey"
 
 # Source the .envrc file to load the GITHUB_USER and GITHUB_REPO environment variables
 # shellcheck source=/dev/null
@@ -62,7 +62,7 @@ if [ "$gitops_flag" = true ] ; then
 	--components-extra=image-reflector-controller,image-automation-controller \
 	--context="${context_name}" \
 	--owner="${GITHUB_OWNER}" \
-	--path=clusters/"${cluster_name}" \
+	--path=infra/clusters/"${cluster_name}" \
 	--personal \
 	--read-write-key \
 	--repository="${GITHUB_REPO}"
@@ -76,11 +76,11 @@ else
 	--context="${context_name}" \
 	--url=https://github.com/"${GITHUB_OWNER}"/"${GITHUB_REPO}" \
 	--branch=main \
-	--ignore-paths=clusters/"${cluster_name}"/flux-system/
+	--ignore-paths=infra/clusters/"${cluster_name}"/flux-system/
 	flux create kustomization flux-system \
 	--context="${context_name}" \
 	--source=flux-system \
-	--path=./clusters/"${cluster_name}"
+	--path=./infra/clusters/"${cluster_name}"
 fi
 print_green "Cluster provisioned successfully"
 
@@ -108,7 +108,7 @@ else
 kubectl create secret generic sops-age \
 	--context="${context_name}" \
 	--namespace=flux-system \
-	--from-file=./clusters/"${cluster_name}"/sops.agekey
+	--from-file=./infra/clusters/"${cluster_name}"/sops.agekey
 	print_green "Secret 'sops-age' created."
 fi
 echo ""
