@@ -5,4 +5,4 @@ metadata:
   namespace: default
 spec:
   update:
-    path: ./app/deploy/dev
+    path: ./app/fastapi/deploy/dev
