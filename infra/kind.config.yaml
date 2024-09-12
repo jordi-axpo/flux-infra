@@ -3,22 +3,22 @@ apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
   - role: control-plane
     extraPortMappings:
-      - containerPort: 6543
-        hostPort: 6543
+      - containerPort: 6544
+        hostPort: 6544
         listenAddress: "127.0.0.1"
   - role: worker
     extraPortMappings:
       - containerPort: 80
-        hostPort: 8080
+        hostPort: 8082
         protocol: TCP
       - containerPort: 443
-        hostPort: 4430
+        hostPort: 4432
         protocol: TCP
   - role: worker
     extraPortMappings:
       - containerPort: 80
-        hostPort: 8081
+        hostPort: 8083
         protocol: TCP
       - containerPort: 443
-        hostPort: 4431
+        hostPort: 4433
         protocol: TCP

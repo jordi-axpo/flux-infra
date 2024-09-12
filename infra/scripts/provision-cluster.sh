@@ -84,31 +84,22 @@ else
 fi
 print_green "Cluster provisioned successfully"
 
-if [ ! -f "$private_key_path" ]; then
-	echo ""
-	print_yellow "The private key does not exist in ${private_key_path}."
 
-	read -r -p "👉 Do you want to generate a new one? You will later need to update the to update the ./.sops.yaml file with its public key for ${cluster_name} [y/n]: " generate_age_key
-	if [[ $generate_age_key =~ ^[yY] ]]; then
-		age-keygen -o "${private_key_path}"
-		print_green "New age key generated in ${private_key_path}, do not forget to update the ./.sops.yaml file with the public key for ${cluster_name}"
-	else
-		print_yellow "Skipped cluster provision, a private key needs to be provided. You might want to set ${private_key_path} with an age key from a password manager or any other external source. "
-		exit_gracefully
-	fi
-fi
-
-# Provision the key that will be used to decrypt sops secrets
+# Provision the secret that will be used to access the private registry
 echo ""
-print_blue "🔑 Creating private sops-age key for global secret management..."
+print_blue "🔑 Creating secret acr-credentials to access ACR..."
 
-if kubectl get secret sops-age --context="${context_name}" --namespace=flux-system > /dev/null 2>&1; then
-	print_yellow "Secret 'sops-age' already exists. Skipping creation."
+if kubectl get secret acr-credentials --context="${context_name}" --namespace=default > /dev/null 2>&1; then
+	print_yellow "Secret 'acr-credentials' already exists. Skipping creation."
 else
-kubectl create secret generic sops-age \
-	--context="${context_name}" \
-	--namespace=flux-system \
-	--from-file=./infra/clusters/"${cluster_name}"/sops.agekey
-	print_green "Secret 'sops-age' created."
+kubectl create secret docker-registry acr-credentials \
+    --docker-server=${ACR_NAME} \
+    --docker-username=${ACR_USERNAME} \
+    --docker-password=${ACR_TOKEN} \
+	--namespace=default
+
+	print_green "Secret 'acr-credentials' created."
 fi
 echo ""
+
+

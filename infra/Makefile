@@ -60,3 +60,14 @@ wait-apps: init # wait for resources provisioned in the current context app clus
 	kubectl -n flux-system wait kustomization/infra-configs --for=condition=ready --timeout=5m
 	kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=5m
 	kubectl -n podinfo wait helmrelease/podinfo --for=condition=ready --timeout=5m
+
+
+create-stage: init ## create a local staging cluster with kind and bootstrap with flux via gitops
+	./scripts/create-cluster.sh kind stage
+	./scripts/provision-cluster.sh stage kind-stage --gitops
+	@$(MAKE) wait-apps
+
+create-prod: init ## create a local prod cluster with kind and bootstrap with flux via gitops
+	./scripts/create-cluster.sh kind prod
+	./scripts/provision-cluster.sh prod kind-prod --gitops
+	@$(MAKE) wait-apps
