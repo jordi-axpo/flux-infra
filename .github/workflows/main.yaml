@@ -10,6 +10,9 @@ jobs:
     test:
         runs-on: ubuntu-latest
         name: Tests
+        steps:
+          - name: Echo
+            run: echo "Running tests"
     build_development:
         if: github.ref != 'refs/heads/dev'
         name: Development
