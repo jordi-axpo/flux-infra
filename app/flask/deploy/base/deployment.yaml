@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: h2axsa4sandbox4acr.azurecr.io/hello-version-flask:25 # {"$imagepolicy": "default:flask"}
+        image: h2axsa4sandbox4acr.azurecr.io/hello-version-flask:1 # {"$imagepolicy": "default:flask"}
         ports:
         - containerPort: 8080
         envFrom:
