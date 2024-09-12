@@ -1,4 +1,4 @@
-name: Deploy to WebApp
+name: Main Workflow for FastAPI
 
 on: 
     push:

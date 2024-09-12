@@ -1,4 +1,4 @@
-name: Build and push image to ACR
+name: Build and Push image to ACR
 
 on:
   workflow_call:
