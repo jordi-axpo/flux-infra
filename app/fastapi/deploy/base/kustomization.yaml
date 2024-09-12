@@ -4,5 +4,7 @@ resources:
   - configmap.yaml
   - deployment.yaml
   - service.yaml
+images:
+  - name: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi
 commonLabels:
   app: fastapi
