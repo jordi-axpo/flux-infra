@@ -16,6 +16,12 @@ creation_rules:
   - path_regex: .*dev/.*.yaml
     encrypted_regex: ^(data|stringData)$
     age: age1ln0hyfv26nu7c9ljq99aulgqxu3y2l3jggv9ggt9pekqvz8tu34q9a4zwt
+  # Stage secrets
+  - path_regex: .*stage/.*values-secret.yaml
+    age: age13v4rf2q0mxzs9v0udqanppm6flg4nxwmmg69yhq0n5f57ka5mvhsu5l6qt
+  - path_regex: .*stage/.*.yaml
+    encrypted_regex: ^(data|stringData)$
+    age: age13v4rf2q0mxzs9v0udqanppm6flg4nxwmmg69yhq0n5f57ka5mvhsu5l6qt
   # Prod secrets
   - path_regex: .*prod/.*values-secret.yaml
     age: age1ed5rue36y4h3xewkf2rcatkge3936mdle2zpx6njyjrjeaelkglsy0c4z3
