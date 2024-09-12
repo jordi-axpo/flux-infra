@@ -1,0 +1,36 @@
+name: Deploy to WebApp
+
+on: 
+    push:
+      branches: ['main']
+      paths: ['app/fastapi/src/**']
+    workflow_dispatch:
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        name: Tests
+    build_development:
+        if: github.ref != 'refs/heads/dev'
+        name: Development
+        needs: test
+        uses: ./.github/workflows/build.yaml
+        with:
+            environment: 'Development'
+        secrets: inherit
+    build_staging:
+        if: github.ref == 'refs/heads/main'
+        needs: test
+        name: Staging
+        uses: ./.github/workflows/build.yaml
+        with:
+            environment: 'Staging'
+        secrets: inherit
+    build_production:
+        if: github.ref == 'refs/heads/main'
+        needs: build_staging
+        name: Production
+        uses: ./.github/workflows/build.yaml
+        with:
+            environment: 'Production'
+        secrets: inherit
