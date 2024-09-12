@@ -6,3 +6,9 @@ patches:
   - path: controller.yaml
     target:
       kind: Kustomization
+  - path: imageupdateautomation.yaml
+    target:
+      kind: ImageUpdateAutomation
+  - path: imagerepository.yaml
+    target:
+      kind: ImageRepository

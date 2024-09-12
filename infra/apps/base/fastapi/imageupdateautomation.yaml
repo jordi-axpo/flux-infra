@@ -20,5 +20,5 @@ spec:
     push:
       branch: main
   update:
-    path: ./app/fastapi/deploy/base/deployment.yaml
+    path: ./app/fastapi/deploy/base
     strategy: Setters
