@@ -8,3 +8,5 @@ spec:
   ref:
     branch: main
   url: https://github.com/jordi-axpo/flux-infra
+  secretRef:
+    name: github-credentials

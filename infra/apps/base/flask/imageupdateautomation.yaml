@@ -1,13 +1,13 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: fastapi
+  name: flask
   namespace: default
 spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: fastapi
+    name: flask
   git:
     checkout:
       ref:
@@ -20,5 +20,5 @@ spec:
     push:
       branch: main
   update:
-    path: ./infra/apps/fastapi/deploy/deployment.yaml
+    path: ./app/flask/deploy/base/deployment.yaml
     strategy: Setters

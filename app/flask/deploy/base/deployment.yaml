@@ -22,7 +22,11 @@ spec:
     spec:
       containers:
       - name: flask
-        image: hello-version-flask:0.0.2
-        imagePullPolicy: Never
+        image: h2axsa4sandbox4acr.azurecr.io/hello-version-flask:25 # {"$imagepolicy": "default:flask"}
         ports:
         - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: env-example # this will be replaced by Kustomize with the generated name of the ConfigMap
+      imagePullSecrets:
+      - name: acr-credentials

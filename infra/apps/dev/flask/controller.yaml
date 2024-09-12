@@ -4,9 +4,4 @@ metadata:
   name: flask
   namespace: default
 spec:
-  interval: 15m
-  path: "./app/flask/deploy"
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: flask
+  path: ./app/flask/deploy/dev
