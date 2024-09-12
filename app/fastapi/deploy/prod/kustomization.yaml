@@ -13,4 +13,4 @@ commonLabels:
 images:
   - name: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi
     newName: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi-prod # {"$imagepolicy": "default:fastapi:name"}
-    newTag: "37" # {"$imagepolicy": "default:fastapi:tag"}
+    newTag: "38" # {"$imagepolicy": "default:fastapi:tag"}
