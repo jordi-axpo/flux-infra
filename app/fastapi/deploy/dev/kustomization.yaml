@@ -10,5 +10,5 @@ configMapGenerator:
       - ENV=dev
 commonLabels:
   environment: dev
-images: 
-  - name: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi-dev:25 # {"$imagepolicy": "default:fastapi"}
+images:
+  - name: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi-dev:37 # {"$imagepolicy": "default:fastapi"}
