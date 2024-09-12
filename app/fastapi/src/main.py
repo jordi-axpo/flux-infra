@@ -3,7 +3,7 @@ from os import getenv
 
 app = FastAPI()
 
-VERSION = "0.0.9"
+VERSION = "0.0.10"
 
 ENV = getenv("ENV")
 
