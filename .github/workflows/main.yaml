@@ -22,7 +22,7 @@ jobs:
         needs: test
         uses: ./.github/workflows/build.yaml
         with:
-            environment: 'Development'
+            environment: 'dev'
         secrets: inherit
     build_staging:
         if: github.ref == 'refs/heads/main'
@@ -30,7 +30,7 @@ jobs:
         name: Staging
         uses: ./.github/workflows/build.yaml
         with:
-            environment: 'Staging'
+            environment: 'stage'
         secrets: inherit
     build_production:
         if: github.ref == 'refs/heads/main'
@@ -38,5 +38,5 @@ jobs:
         name: Production
         uses: ./.github/workflows/build.yaml
         with:
-            environment: 'Production'
+            environment: 'prod'
         secrets: inherit
