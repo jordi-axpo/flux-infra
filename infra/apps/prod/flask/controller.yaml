@@ -4,4 +4,4 @@ metadata:
   name: flask
   namespace: default
 spec:
-  path: ./app/flask/deploy/production
+  path: ./app/flask/deploy/prod

@@ -4,4 +4,4 @@ metadata:
   name: fastapi
   namespace: default
 spec:
-  path: ./app/fastapi/deploy/production
+  path: ./app/fastapi/deploy/prod

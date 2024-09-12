@@ -7,6 +7,6 @@ configMapGenerator:
   - name: env-example # it will replace the configmap that it founds with this name and add a hash
     behavior: merge
     literals:
-      - ENV=staging
+      - ENV=stage
 commonLabels:
-  environment: staging
+  environment: stage
