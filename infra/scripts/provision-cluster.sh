@@ -92,11 +92,10 @@ print_blue "🔑 Creating secret acr-credentials to access ACR..."
 if kubectl get secret acr-credentials --context="${context_name}" --namespace=default > /dev/null 2>&1; then
 	print_yellow "Secret 'acr-credentials' already exists. Skipping creation."
 else
-kubectl create secret docker-registry acr-credentials \
+kubectl create secret docker-registry acr-credentials --context="${context_name}" --namespace=default \
     --docker-server=${ACR_NAME} \
     --docker-username=${ACR_USERNAME} \
-    --docker-password=${ACR_TOKEN} \
-	--namespace=default
+    --docker-password=${ACR_TOKEN}
 
 	print_green "Secret 'acr-credentials' created."
 fi
