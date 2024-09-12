@@ -10,3 +10,12 @@ configMapGenerator:
       - ENV=prod
 commonLabels:
   environment: prod
+images:
+  - name: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi
+    newName: h2axsa4sandbox4acr.azurecr.io/hello-version-fastapi-prod # {"$imagepolicy": "default:fastapi:name"}
+    newTag: "37" # {"$imagepolicy": "default:fastapi:tag"}
+patches:
+  - path: patch-deployment.yaml
+    target:
+      kind: Deployment
+      name: fastapi

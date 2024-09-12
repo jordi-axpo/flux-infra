@@ -103,3 +103,17 @@ fi
 echo ""
 
 
+# Provision the secret that will be used to access the private registry
+echo ""
+print_blue "🔑 Creating secret github-credentials to access GitHub..."
+
+flux create secret git github-credentials \
+	--url https://github.com/${GITHUB_OWNER}/${GITHUB_REPO} \
+	--username ${GITHUB_OWNER} \
+	--password ${GITHUB_TOKEN} \
+	--namespace default
+
+print_green "Secret 'github-credentials' created."
+
+echo ""
+

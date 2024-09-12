@@ -1,0 +1,25 @@
+### Generate a private key per cluster
+
+Each cluster folder in `./clusters/` should have a git ignored `sops.agekey` file, whose public key
+is listed in `./.sops.yaml` with a path_regex that involves files that only belong to that cluster.
+
+You can generate a key like this:
+
+```sh
+# One key per file
+age-keygen > clusters/dev/sops.agekey
+```
+
+You should have a file there with a format like this:
+
+```sh
+$ cat sops.agekey
+# created: 2023-07-17T14:07:50+02:00
+# public key: age1v6q8sylunaq9m08rwxq702enmmh9lama7sp47vkcw3z8wm74z39q846s3y
+AGE-SECRET-KEY-THIS_IS_A_SECRET_THAT_SHOULD_NEVER_BE_PUSHED
+```
+
+Normally, you would need to put an `AGE-SECRET-*` value that is shared within your team. The
+`sops.agekey` file will never be pushed to the repo as it is git ignored.
+
+The public key of this file should be added to the relevant `.sops.yaml` entries.
