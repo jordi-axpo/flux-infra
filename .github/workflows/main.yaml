@@ -2,7 +2,6 @@ name: Deploy to WebApp
 
 on: 
     push:
-      branches: ['main']
       paths: ['app/fastapi/src/**']
     workflow_dispatch:
 
@@ -14,7 +13,7 @@ jobs:
           - name: Echo
             run: echo "Running tests"
     build_development:
-        if: github.ref != 'refs/heads/dev'
+        if: github.ref != 'refs/heads/main'
         name: Development
         needs: test
         uses: ./.github/workflows/build.yaml
