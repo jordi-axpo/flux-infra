@@ -33,7 +33,9 @@ The public key of this file should be added to the relevant `.sops.yaml` entries
 
 ### Create resources
 
-To initializae a cluster and test the setup, we can execute the following command, which will create a cluster using kind and delete it afterwards.
+Make sure to add your credentials in the `.envrc` file.
+
+To initialize a cluster and test the setup, we can execute the following command, which will create a cluster using kind and delete it afterwards.
 
 ```
 make e2e
@@ -44,3 +46,11 @@ If you want to create other clusters, i.e. for prod:
 ```
 make create-prod
 ```
+
+### Flux UI
+To access the Flux UI on a cluster, first start port forwarding with:
+
+```
+kubectl -n flux-system port-forward svc/weave-gitops 9001:9001
+```
+Navigate to http://localhost:9001 and login using the username `admin` and the password `flux`.
