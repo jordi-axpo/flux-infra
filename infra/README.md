@@ -1,3 +1,10 @@
+## Flux
+
+Contents:
+- Flux UI using Wave GitOps
+- Scripts to automate the installation and initialization of Flux and K8s
+- Secret managment with sops.
+
 ### Generate a private key per cluster
 
 Each cluster folder in `./clusters/` should have a git ignored `sops.agekey` file, whose public key
@@ -23,3 +30,17 @@ Normally, you would need to put an `AGE-SECRET-*` value that is shared within yo
 `sops.agekey` file will never be pushed to the repo as it is git ignored.
 
 The public key of this file should be added to the relevant `.sops.yaml` entries.
+
+### Create resources
+
+To initializae a cluster and test the setup, we can execute the following command, which will create a cluster using kind and delete it afterwards.
+
+```
+make e2e
+```
+
+If you want to create other clusters, i.e. for prod:
+
+```
+make create-prod
+```

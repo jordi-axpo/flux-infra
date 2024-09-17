@@ -12,7 +12,7 @@ nodes:
         hostPort: 8084
         protocol: TCP
       - containerPort: 443
-        hostPort: 4432
+        hostPort: 4434
         protocol: TCP
   - role: worker
     extraPortMappings:
@@ -20,5 +20,5 @@ nodes:
         hostPort: 8085
         protocol: TCP
       - containerPort: 443
-        hostPort: 4433
+        hostPort: 4435
         protocol: TCP
